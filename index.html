@@ -307,40 +307,74 @@
             color: rgba(255, 255, 255, .66);
         }
 
-        /* ---------- Modes ---------- */
-        .modes {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+        /* ---------- Use modes (4 modes) ---------- */
+        .usemodes {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
             margin-top: 36px;
         }
 
-        .mode {
-            flex: 1 1 108px;
+        .usemode {
             border: 1px solid var(--line);
-            border-radius: 12px;
-            padding: 20px 12px;
-            text-align: center;
+            border-radius: 14px;
+            padding: 22px 20px;
             background: var(--paper);
         }
 
-        .mode__step {
-            font-size: 11px;
+        .usemode__time {
+            display: inline-block;
+            background: var(--navy);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 999px;
+            margin-bottom: 10px;
+        }
+
+        .usemode h3 { font-size: 16px; margin-bottom: 4px; }
+        .usemode p { margin: 0; font-size: 13px; color: var(--muted); }
+
+        /* ---------- Product diagram ---------- */
+        .diagram {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-top: 36px;
+        }
+
+        .diagram img {
+            width: 220px;
+            border-radius: 14px;
+        }
+
+        .diagram__list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 16px;
+        }
+
+        .diagram__list li {
+            font-size: 14px;
             color: var(--muted);
-            letter-spacing: .1em;
+            border-left: 2px solid var(--coral);
+            padding-left: 14px;
         }
 
-        .mode__hz {
-            font-size: 19px;
-            font-weight: 800;
-            color: var(--navy);
-            margin-top: 4px;
+        .diagram__list b {
+            display: block;
+            color: var(--ink);
+            font-size: 15px;
+            margin-bottom: 2px;
         }
 
-        .mode:last-child {
-            border-color: var(--coral);
-            background: rgba(240, 113, 90, .06);
-        }
+        /* ---------- Disclosure table ---------- */
+        .disclosure dt { font-size: 13px; }
+        .disclosure dd { font-size: 14px; color: var(--muted); }
 
         .mode:last-child .mode__hz { color: var(--coral); }
 
@@ -533,6 +567,8 @@
             .points { grid-template-columns: 1fr; }
             .drops { grid-template-columns: 1fr; }
             .spec-list > div { grid-template-columns: 108px 1fr; }
+            .usemodes { grid-template-columns: 1fr; }
+            .diagram { grid-template-columns: 1fr; justify-items: center; text-align: left; }
         }
     </style>
 </head>
@@ -712,16 +748,59 @@
 
         <section class="alt">
             <div class="wrap reveal">
-                <p class="eyebrow">5 MODES</p>
-                <h2>5단계 주파수 모드</h2>
-                <p class="lead">피부 상태와 관리 부위에 따라 5단계 중에서 선택해 사용합니다.</p>
+                <p class="eyebrow">4 CUSTOM MODES</p>
+                <h2>4가지 맞춤 모드</h2>
+                <p class="lead">
+                    3MHz 이하~17MHz 사이에서 목적에 맞는 모드를 고르고,
+                    1~5단계 강도 중 피부에 맞는 세기를 선택합니다.
+                </p>
 
-                <div class="modes">
-                    <div class="mode"><div class="mode__step">STEP 1</div><div class="mode__hz">3MHz</div></div>
-                    <div class="mode"><div class="mode__step">STEP 2</div><div class="mode__hz">7MHz</div></div>
-                    <div class="mode"><div class="mode__step">STEP 3</div><div class="mode__hz">10MHz</div></div>
-                    <div class="mode"><div class="mode__step">STEP 4</div><div class="mode__hz">13MHz</div></div>
-                    <div class="mode"><div class="mode__step">STEP 5</div><div class="mode__hz">17MHz</div></div>
+                <div class="usemodes">
+                    <div class="usemode">
+                        <div class="usemode__time">12분</div>
+                        <h3>1. 링클즈 (Wrinkles)</h3>
+                        <p>결을 정돈하는 촘촘한 케어</p>
+                    </div>
+                    <div class="usemode">
+                        <div class="usemode__time">12분</div>
+                        <h3>2. 리프팅 (Lifting)</h3>
+                        <p>흐트러진 얼굴 라인 케어</p>
+                    </div>
+                    <div class="usemode">
+                        <div class="usemode__time">15분</div>
+                        <h3>3. 타이트닝 (Tightening)</h3>
+                        <p>안쪽부터 채워주는 밀착 케어</p>
+                    </div>
+                    <div class="usemode">
+                        <div class="usemode__time">15분</div>
+                        <h3>4. 안티에이징 (Anti-aging)</h3>
+                        <p>타고난 듯 건강한 안색 케어</p>
+                    </div>
+                </div>
+
+                <p class="draft-note">
+                    하루에 한 가지 모드, 15분 이내 사용을 권장합니다. 여러 모드를 이어서 쓰거나
+                    한 부위를 15분 이상 사용하지 마세요.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class="wrap reveal">
+                <p class="eyebrow">PRODUCT STRUCTURE</p>
+                <h2>제품 구조</h2>
+
+                <div class="diagram">
+                    <img src="device.jpg" width="300" height="480" loading="lazy"
+                         alt="노바소닉 본체 구조 — 커브드 헤드, LCD 디스플레이, 모드·세기·전원 버튼">
+                    <ul class="diagram__list">
+                        <li><b>Curved Head</b> 코, 턱 등 굴곡진 부위에 밀착되는 커브드 헤드</li>
+                        <li><b>LCD 디스플레이</b> 현재 모드와 남은 시간 확인</li>
+                        <li><b>모드 변경 버튼</b> 4가지 모드 중 선택</li>
+                        <li><b>세기 변경 버튼</b> 1~5단계 강도 순차 변경</li>
+                        <li><b>전원 버튼</b> 3초 이상 눌러 전원 on/off</li>
+                        <li><b>충전 단자</b> 본체 뒤쪽, USB-C</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -729,26 +808,38 @@
         <section>
             <div class="wrap reveal">
                 <p class="eyebrow">HOW TO USE</p>
-                <h2>하루 한 번, 네 단계</h2>
+                <h2>사용 방법</h2>
 
                 <ol class="steps">
                     <li>
-                        <b>세안 후 물기 제거</b>
-                        깨끗하게 세안한 뒤 사용할 부위의 물기를 정리합니다.
+                        <b>물기 제거 &amp; 도포</b>
+                        세안 후 물기를 제거하고 에센스나 젤을 충분히 도포합니다.
                     </li>
                     <li>
-                        <b>전용 젤 또는 세럼 도포</b>
-                        기기가 부드럽게 미끄러지도록 충분한 양을 바릅니다.
+                        <b>전원 켜기</b>
+                        기기 앞면의 전원 버튼을 3초 이상 눌러 전원을 켭니다.
                     </li>
                     <li>
-                        <b>모드 선택 후 페이스 라인 마사지</b>
-                        피부 상태에 맞는 모드를 고르고, 한 부위에 오래 머무르지 않도록 천천히 이동합니다.
+                        <b>모드 선택</b>
+                        전원 버튼 위의 모드 버튼을 눌러 모드를 선택합니다.
                     </li>
                     <li>
-                        <b>흡수 후 마무리</b>
-                        젤이 충분히 흡수되면 전원을 끄고 헤드를 닦아 건조한 곳에 보관합니다.
+                        <b>강도 선택</b>
+                        모드 선택 후 아래 버튼을 눌러 강도(1~5단계) 중 피부에 맞는 강도를 선택합니다.
+                    </li>
+                    <li>
+                        <b>마무리 케어</b>
+                        관리 후 에센스와 크림을 발라 마무리합니다.
+                    </li>
+                    <li>
+                        <b>세척 &amp; 보관</b>
+                        사용 후 깨끗한 티슈로 헤드를 닦아서 보관합니다.
                     </li>
                 </ol>
+
+                <p class="draft-note">
+                    하루에 한 가지 모드 이상, 또는 15분 이상 사용은 주의해 주세요.
+                </p>
             </div>
         </section>
 
@@ -787,22 +878,44 @@
                     <div><dt>모델명</dt><dd>DJ-NK01EN</dd></div>
                     <div><dt>색상</dt><dd>실버 / 화이트</dd></div>
                     <div><dt>기술 특징</dt><dd>고밀도 초음파 디바이스</dd></div>
-                    <div><dt>출력 모드</dt><dd>3MHz / 7MHz / 10MHz / 13MHz / 17MHz</dd></div>
+                    <div><dt>주파수 범위</dt><dd>3MHz 이하 ~ 17MHz (가변)</dd></div>
+                    <div><dt>모드</dt><dd>링클즈 / 리프팅 / 타이트닝 / 안티에이징 (4모드 × 1~5단계)</dd></div>
                     <div><dt>크기</dt><dd>185 × 47 × 45 mm</dd></div>
                     <div><dt>무게</dt><dd>170g</dd></div>
                     <div><dt>충전 방식</dt><dd>USB-C</dd></div>
                     <div><dt>충전 시간</dt><dd>1~1.5시간 (완충 기준)</dd></div>
                     <div><dt>사용 시간</dt><dd>완충 후 최대 2시간</dd></div>
-                    <div><dt>충전 전압</dt><dd>DC 5V 2A</dd></div>
+                    <div><dt>정격전압</dt><dd>100V-240V, 50Hz</dd></div>
                     <div><dt>헤드 소재</dt><dd>메디컬 그레이드 SUS</dd></div>
                     <div><dt>사용 횟수</dt><dd>무제한 (소모품·카트리지 없음)</dd></div>
                     <div><dt>방수 여부</dt><dd>방수 미지원</dd></div>
                     <div><dt>구성품</dt><dd>본체 / 충전 케이블 / 사용 설명서</dd></div>
+                    <div><dt>출시년월</dt><dd>2025년 11월</dd></div>
                     <div><dt>제조국</dt><dd>대한민국</dd></div>
                     <div><dt>보증 기간</dt><dd>제조사 보증 1년</dd></div>
                     <div><dt>국내 인증</dt><dd>KC 인증 (R-R-DAEJ-DJ-NK01EN)</dd></div>
                     <div><dt>해외 등록</dt><dd>미국 FDA 등록</dd></div>
                     <div><dt>A/S 문의</dt><dd>010-3790-3782</dd></div>
+                </dl>
+            </div>
+        </section>
+
+        <section class="alt">
+            <div class="wrap reveal">
+                <p class="eyebrow">상품정보 제공고시</p>
+                <h2>전자상거래법 표준 정보</h2>
+                <p class="lead">전자상거래 등에서의 상품정보 제공 고시 기준에 따른 표준 정보입니다.</p>
+
+                <dl class="spec-list disclosure">
+                    <div><dt>품명 및 모델명</dt><dd>Ultra Skin Care Device / DJ-NK01EN</dd></div>
+                    <div><dt>KC 인증 필 유무</dt><dd>KC 인증 / R-R-DAEJ-DJ-NK01EN</dd></div>
+                    <div><dt>정격전압 / 소비전력</dt><dd>100V-240V, 50Hz</dd></div>
+                    <div><dt>제조자</dt><dd>주식회사 대정에코테크</dd></div>
+                    <div><dt>제조국</dt><dd>Made in Korea</dd></div>
+                    <div><dt>크기 / 무게</dt><dd>185 × 47 × 45 mm / 170g</dd></div>
+                    <div><dt>주요 사양</dt><dd>3MHz 이하~17MHz 가변 주파수, 스마트 LCD 디스플레이 등</dd></div>
+                    <div><dt>품질보증기준</dt><dd>본 제품에 이상이 있을 경우 공정거래위원회 고시 소비자분쟁해결기준에 의거해 보상합니다.</dd></div>
+                    <div><dt>A/S 책임자와 전화번호</dt><dd>010-3790-3782</dd></div>
                 </dl>
             </div>
         </section>
