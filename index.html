@@ -453,6 +453,47 @@
 
         footer p { margin: 0 0 6px; }
 
+        .footer-link {
+            color: rgba(255, 255, 255, .78);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .footer-link:hover { color: #fff; }
+
+        /* ---------- CTA ---------- */
+        .cta {
+            display: inline-block;
+            background: var(--coral);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            letter-spacing: -.01em;
+            padding: 16px 34px;
+            border-radius: 999px;
+            transition: transform .15s ease, box-shadow .15s ease;
+        }
+
+        .cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(240, 113, 90, .35);
+        }
+
+        .cta--hero {
+            margin-top: 38px;
+            background: #fff;
+            color: var(--navy);
+        }
+
+        .cta--hero:hover { box-shadow: 0 10px 24px rgba(0, 0, 0, .25); }
+
+        .buy {
+            text-align: center;
+        }
+
+        .buy h2 { margin-bottom: 30px; }
+
         /* ---------- Draft note ---------- */
         .draft-note {
             margin: 24px 0 0;
@@ -505,6 +546,9 @@
             17MHz 고밀도 초음파 홈 디바이스<br>
             에스테틱의 한계를 넘어, 데일리 케어의 새로운 기준
         </p>
+        <a class="cta cta--hero" href="https://kmedicosgroup.cafe24.com/" target="_blank" rel="noopener">
+            구매하러 가기
+        </a>
     </header>
 
     <main>
@@ -809,12 +853,23 @@
                 </div>
             </div>
         </section>
+
+        <section>
+            <div class="wrap reveal buy">
+                <p class="eyebrow">BUY NOVASONIC</p>
+                <h2>노바소닉, 지금 만나보세요</h2>
+                <a class="cta" href="https://kmedicosgroup.cafe24.com/" target="_blank" rel="noopener">
+                    K-MEDICOS 자사몰에서 구매하기
+                </a>
+            </div>
+        </section>
     </main>
 
     <footer>
         <p>NOVASONIC &middot; K-MEDICOS</p>
         <p>제조 : 대정에코테크 (Made in Korea)</p>
         <p>A/S 문의 : 010-3790-3782</p>
+        <p><a class="footer-link" href="https://kmedicosgroup.cafe24.com/" target="_blank" rel="noopener">kmedicosgroup.cafe24.com</a></p>
     </footer>
 
     <script>
