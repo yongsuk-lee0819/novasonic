@@ -9,7 +9,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="노바소닉 NOVASONIC | 17MHz 고밀도 초음파 홈 디바이스">
     <meta property="og:description" content="초당 1,700만 회 미세 진동, 비열성 설계로 매일 사용하는 데일리 케어">
-    <meta property="og:image" content="detail-0510.jpg">
+    <meta property="og:image" content="lifestyle.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#22376b">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2322376b'/%3E%3Ctext x='32' y='43' font-family='Helvetica,Arial,sans-serif' font-size='30' font-weight='bold' fill='%23ffffff' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
@@ -132,6 +132,39 @@
             font-size: clamp(14px, 3.6vw, 16px);
             color: rgba(255, 255, 255, .78);
             line-height: 1.8;
+        }
+
+        /* ---------- Split (이미지 + 카피) ---------- */
+        .split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 44px;
+            align-items: center;
+        }
+
+        .split img { border-radius: 18px; }
+
+        .split__minutes {
+            font-size: clamp(46px, 11vw, 72px);
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1;
+            letter-spacing: -.04em;
+        }
+
+        .split__minutes span {
+            font-size: .34em;
+            font-weight: 700;
+            color: var(--muted);
+            margin-left: 6px;
+            letter-spacing: 0;
+        }
+
+        /* ---------- Product shot ---------- */
+        .shot {
+            margin: 0 auto 8px;
+            width: 194px;
+            max-width: 60%;
         }
 
         /* ---------- Pillars ---------- */
@@ -452,6 +485,7 @@
 
         @media (max-width: 640px) {
             section { padding: 64px 0; }
+            .split { grid-template-columns: 1fr; gap: 28px; }
             .pillars,
             .facts__grid,
             .points { grid-template-columns: 1fr; }
@@ -474,6 +508,24 @@
     </header>
 
     <main>
+        <section>
+            <div class="wrap reveal">
+                <div class="split">
+                    <img src="lifestyle.jpg" width="864" height="812"
+                         alt="노바소닉 디바이스를 손에 든 모습">
+                    <div>
+                        <p class="eyebrow">DAILY CARE</p>
+                        <div class="split__minutes">12<span>min</span></div>
+                        <h2>하루 12분으로<br>완성되는 케어</h2>
+                        <p class="lead">
+                            시술을 예약하고 기다릴 필요 없이,
+                            매일의 스킨케어 시간에 12분을 더하는 것으로 충분합니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="alt">
             <div class="wrap reveal">
                 <p class="eyebrow">KEY POINTS</p>
@@ -681,6 +733,9 @@
             <div class="wrap reveal">
                 <p class="eyebrow">SPECIFICATION</p>
                 <h2>제품 사양</h2>
+
+                <img class="shot" src="device.jpg" width="194" height="534"
+                     loading="lazy" alt="노바소닉 본체 측면">
 
                 <dl class="spec-list">
                     <div><dt>제품명</dt><dd>노바소닉 (NOVASONIC)</dd></div>
